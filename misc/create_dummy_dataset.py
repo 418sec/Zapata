@@ -3,7 +3,7 @@ import yaml, os, sys
 import numpy as np
 
 # import dummy_dataset from catalogue
-catalogue = yaml.load(open('../zapata/catalogue.yml'), Loader=yaml.FullLoader)
+catalogue = yaml.load(open('../zapata/catalogue.yml'), Loader=yaml.SafeLoader)
 
 dataset = catalogue['dummy_dataset']
 
