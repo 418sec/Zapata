@@ -103,12 +103,12 @@ def inquire_catalogue(dataset=None, info=False):
     pwd = os.path.dirname(os.path.abspath(__file__))
 
     # Load catalogue
-    catalogue = yaml.load(open(pwd + '/catalogue.yml'), Loader=yaml.FullLoader)
+    catalogue = yaml.load(open(pwd + '/catalogue.yml'), Loader=yaml.SafeLoader)
  
     # if user defined catalogue exists, update generale one
     user_catalogue = pwd + '/../user_catalogue.yml'
     if os.path.isfile(user_catalogue):
-       tmp_dict = yaml.load(open(user_catalogue), Loader=yaml.FullLoader)
+       tmp_dict = yaml.load(open(user_catalogue), Loader=yaml.SafeLoader)
        if (tmp_dict is not None):
           catalogue.update(tmp_dict)
           print('Append user defined lists of datasets to catalogue:\n')
